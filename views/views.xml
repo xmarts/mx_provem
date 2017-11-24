@@ -1,0 +1,44 @@
+<openerp>
+  <data>
+    <record id="view_saleordr_form_inherit" model="ir.ui.view">
+            <field name="name">view.saleorder.form.add.text.field</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+              <button name="action_confirm" id="action_confirm"
+                         class="btn-primary" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['sent'])]}" position="replace" >
+                   <button name="action_confirm" id="action_confirm"
+                        string="Confirm Sale" class="btn-primary" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['sent'])]}" groups="mx_provem.group_cotizacion"/>
+              </button>
+                <button name="action_confirm"
+                        type="object"
+                        attrs="{'invisible': [('state', 'not in', ['draft'])]}" position="replace">
+                    <button name="action_confirm"
+                            string="Confirm Sale" type="object"
+                            attrs="{'invisible': [('state', 'not in', ['draft'])]}" groups="mx_provem.group_cotizacion"/>
+
+               </button>
+             </field>
+        </record>
+      <record id="view_purchase_form_inherit" model="ir.ui.view">
+            <field name="name">view.purchase.form.add.text.field</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+              <button name="button_confirm" type="object" states="draft"  id="draft_confirm" position="replace" >
+                   <button name="button_confirm" type="object" states="draft" string="Confirm Order" id="draft_confirm" groups="mx_provem.group_purchase_confirm"/>
+              </button>
+                <button name="button_confirm" type="object" states="sent" class="oe_highlight" id="bid_confirm" position="replace">
+                    <button name="button_confirm" type="object" states="sent" string="Confirm Order" class="oe_highlight" id="bid_confirm" groups="mx_provem.group_purchase_confirm"/>
+
+               </button>
+             </field>
+        </record>
+   
+
+  </data>
+</openerp>

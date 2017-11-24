@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_cotizacion" model="res.groups">
+        <field name="name">Cotizaciones Provem</field>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+        <field name="comment">Show button confirm sale</field>
+    </record>
+
+    <record model="res.groups" id="base.group_user">
+        <field name="implied_ids" eval="[(4, ref('mx_provem.group_cotizacion'))]"/>
+    </record>
+    <record id="group_purchase_confirm" model="res.groups">
+        <field name="name">Requisiciones Provem</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="category_id" ref="base.module_category_purchase_management"/>
+    </record>
+    <record model="res.groups" id="base.group_user">
+        <field name="implied_ids" eval="[(4, ref('mx_provem.group_purchase_confirm'))]"/>
+    </record>
+
+
+</odoo>
