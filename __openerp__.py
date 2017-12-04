@@ -25,7 +25,7 @@
         # 'security/ir.model.access.csv',
         'security/sales_team_security.xml',
         'views/views.xml',
-        'views/stock_quant.xml',
+        #'views/stock_quant.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
