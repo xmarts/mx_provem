@@ -16,7 +16,7 @@ class StockQuant(models.Model):
     @api.one
     def _compute_standardprice(self):
         self.standard_price = self.product_id.standard_price
-    #standard_price= fields.Float(string="Costo", compute="_compute_standardprice", store=True)
+    #standard_price= fields.Float(string="Costo", compute="_compute_standardprice")
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
