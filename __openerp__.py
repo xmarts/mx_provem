@@ -25,7 +25,8 @@
         # 'security/ir.model.access.csv',
         'security/sales_team_security.xml',
         'views/views.xml',
-        'report/report_sale.xml'
+        'report/report_sale.xml',
+        'report/delivery_slip.xml'
         #'views/stock_quant.xml',
     ],
     # only loaded in demonstration mode
