@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="l10n_mx_edi_addenda_procter" name="Addenda Procter">
+            <Addenda>
+                <requestForPaymentIdentification>
+                    <entityType>INVOICE</entityType>
+                    <uniqueCreatorIdentification name="record.number"></uniqueCreatorIdentification>
+                </requestForPaymentIdentification>
+                <specialInstruction>
+                    <text></text>
+                </specialInstruction>
+                <orderIdentification>
+                    <referenceIdentification type="ON" name="record.name"></referenceIdentification>
+                </orderIdentification>
+                <AdditionalInformation>
+                    <referenceIdentification type="IV"></referenceIdentification>
+                    <referenceIdentification type="DQ"></referenceIdentification>
+                </AdditionalInformation>
+                <DeliveryNote>
+                    <referenceIdentification></referenceIdentification>
+                </DeliveryNote>
+                <buyer>
+                    <gln>XXXXXXXXXXXXX</gln>
+                    <contactInformation>
+                        <personOrDepartmentName>
+                            <text></text>
+                        </personOrDepartmentName>
+                    </contactInformation>
+                </buyer>
+                <currency currencyISOCode="MXN">
+                        <currencyFunction name="record.currency_id.name"></currencyFunction>
+                </currency>
+            </Addenda>
+
+        </template>
+        <record id="l10n_mx_edi_addenda_procter" model="ir.ui.view">
+            <field name="l10n_mx_edi_addenda_flag">True</field>
+        </record>
+    </data>
+</odoo>

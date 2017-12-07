@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="l10n_mx_edi_addenda_jvc" name="Addenda Jugos del Valle">
+            <Addenda>
+                <Addenda>
+                      <Documento>
+                        <FacturaFemsa>
+                        <noVersAdd>1</noVersAdd>
+                        <claseDoc>1</claseDoc>
+                        <noSociedad>J001</noSociedad>
+                        <noProveedor> 0004022606</noProveedor>
+                        <noPedido><t t-field="record.name" /></noPedido>
+                        <moneda><t t-field="record.currency_id.name" /></moneda>
+                        <noEntrada></noEntrada>
+                        <noRemision></noRemision><INILISTAPROD></INILISTAPROD>
+                        <noSocio/>
+                        <centroCostos></centroCostos>
+                        <iniPerLiq></iniPerLiq>
+                        <finPerLiq></finPerLiq>
+                        <retencion1/>
+                        <retencion2/>
+                        <email>pedidos@provem.com</email>
+                        </FacturaFemsa>
+                      </Documento>
+                    </Addenda>
+            </Addenda>
+
+        </template>
+        <record id="l10n_mx_edi_addenda_jvc" model="ir.ui.view">
+            <field name="l10n_mx_edi_addenda_flag">True</field>
+        </record>
+    </data>
+</odoo>
