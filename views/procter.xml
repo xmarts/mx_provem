@@ -5,13 +5,13 @@
             <Addenda>
                 <requestForPaymentIdentification>
                     <entityType>INVOICE</entityType>
-                    <uniqueCreatorIdentification name="record.number"></uniqueCreatorIdentification>
+                    <uniqueCreatorIdentification t-field="record.number"/>
                 </requestForPaymentIdentification>
                 <specialInstruction>
                     <text></text>
                 </specialInstruction>
                 <orderIdentification>
-                    <referenceIdentification type="ON" name="record.name"></referenceIdentification>
+                    <referenceIdentification type="ON" t-field="record.name"/>
                 </orderIdentification>
                 <AdditionalInformation>
                     <referenceIdentification type="IV"></referenceIdentification>
@@ -29,7 +29,7 @@
                     </contactInformation>
                 </buyer>
                 <currency currencyISOCode="MXN">
-                        <currencyFunction name="record.currency_id.name"></currencyFunction>
+                        <currencyFunction t-field="record.currency_id.name"/>
                 </currency>
             </Addenda>
 
