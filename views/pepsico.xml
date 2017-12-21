@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="l10n_mx_edi_addenda_pepsico" name="Addenda Pepsico">
+            <Addenda>
+               <RequestCFD tipo="AddendaPCO" version="2.0" idPedido="record.name">
+                 <Documento  folioUUID="record.l10n_mx_edi_cfdi_uuid" tipoDoc="1"/>
+                   <Proveedor idProveedor="1000000490"/>
+                     <Recepciones>
+                      <INILISTAPROD t-foreach="record.invoice_line_ids" t-as="l">
+                        <Recepcion idRecepcion="">
+                           <Concepto cantidad="l.quantity" unidad="l.uom_id.name" descripcion="l.name" valorUnitario="l.price_unit" importe="l.price_subtotal"/>
+                        </Recepcion>
+                      </INILISTAPROD>
+                     </Recepciones>
+               </RequestCFD>
+            </Addenda>
+
+        </template>
+        <record id="l10n_mx_edi_addenda_pepsico" model="ir.ui.view">
+            <field name="l10n_mx_edi_addenda_flag">True</field>
+        </record>
+    </data>
+</odoo>
