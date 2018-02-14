@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="l10n_mx_edi_addenda_mabe" name="Addenda de MABE">
+            <Addenda>
+
+                    <mabe:Factura xmlns:mabe="http://recepcionfe.mabempresa.com/cfd/addenda/v1"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://recepcionfe.mabempresa.com/cfd/addenda/v1
+                        http://recepcionfe.mabempresa.com/cfd/addenda/v1/mabev1.xsd"
+                        version="1.0" tipoDocumento="FACTURA" folio="record.number" fecha="record.date_invoice" ordenCompra="record.partner_id.ref"
+                        referencia1="record.sale_id.referency1" referencia2="record.sale_id.referency2">
+                        <mabe:Moneda tipoMoneda="record.currency_id.name"  importeConLetra="record.l10n_mx_edi_amount_to_text()"/>
+                        <mabe:Proveedor codigo="1000549"/>
+                        <mabe:Entrega plantaEntrega="record.origin" calle="record.partner_id.street_name" codigoPostal="record.partner_id.zip"/>
+                        <mabe:Detalles>
+                        <INILISTAPROD t-foreach="record.invoice_line_ids" t-as="l">
+                        <mabe:Detalle noLineaArticulo="1" codigoArticulo="[PRODALTERNA]" descripcion="l.name"
+                        unidad="PZA" cantidad="l.quantity" precioSinIva="l.price_unit" precioConIva="l.price_untaxed"
+                        importeSinIva="l.price_subtotal" importeConIva="l.price_total"/>
+                        </INILISTAPROD>
+                        </mabe:Detalles>
+                        <mabe:Descuentos tipo="CARGO" descripcion="OTROS CARGOS" importe="0.00"/>
+                        <mabe:Subtotal importe="record.amount_untaxed"/>
+                        <mabe:Traslados t-foreach="record._get_tax_amount_by_group()" t-as="amount_by_group" t-if="len(record.tax_line_ids) == 1 and record.amount_untaxed == amount_by_group[2]">
+                        <mabe:Traslado tipo="amount_by_group[0]" tasa="" importe="amount_by_group[1]"/>
+                        </mabe:Traslados>
+                        <mabe:Retenciones t-foreach="record._get_tax_amount_by_group()" t-as="amount_by_group" t-if="len(record.tax_line_ids) != 1 and record.amount_untaxed != amount_by_group[2]">
+                        <mabe:Retencion tipo="amount_by_group[0]" tasa="" importe="amount_by_group[2]"/>
+                        </mabe:Retenciones>
+                        <mabe:Total importe="record.amount_total"/>
+                    </mabe:Factura>
+            </Addenda>
+
+        </template>
+        <record id="l10n_mx_edi_addenda_mabe" model="ir.ui.view">
+            <field name="l10n_mx_edi_addenda_flag">True</field>
+        </record>
+    </data>
+</odoo>

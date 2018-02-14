@@ -21,6 +21,10 @@
                             attrs="{'invisible': [('state', 'not in', ['draft'])]}" groups="mx_provem.group_cotizacion"/>
 
                </button>
+                <xpath expr="//notebook/page/group/group[@name='sales_person']/field[@name='client_order_ref']" position="after">
+                    <field name="referency1"/>
+                    <field name="referency2"/>
+                </xpath>
              </field>
         </record>
       <record id="view_purchase_form_inherit" model="ir.ui.view">

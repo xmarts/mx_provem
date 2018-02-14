@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="l10n_mx_edi_addenda_gary" name="Addenda Gary">
+            <Addenda>
+                <invoice_header>
+                    <invoice_ind>x</invoice_ind>
+                    <doc_date  t-field="record.date_invoice"/>
+                    <currency  t-field="record.currency_id.name" />
+                </invoice_header>
+                <invoice_item>
+                <INILISTAPROD>
+                    <t t-set="i" t-value="1"/>
+                    <item t-foreach="record.invoice_line_ids" t-as="l">
+                        <po_number  t-field="record.name"/>
+                        <po_item t-esc="i"/>
+                        <tax_code>V2</tax_code>
+                        <item_amount  t-field="l.price_subtotal"/>
+                        <quantity t-field="l.quantity"/>
+                        <po_unit  t-field="l.uom_id"/>
+                        <item_text t-field="l.name"/>
+                        <t t-set="i" t-value="i+1"/>
+                    </item>
+                </INILISTAPROD>
+                </invoice_item>
+        </Addenda>
+
+        </template>
+        <record id="l10n_mx_edi_addenda_gary" model="ir.ui.view">
+            <field name="l10n_mx_edi_addenda_flag">True</field>
+        </record>
+    </data>
+</odoo>

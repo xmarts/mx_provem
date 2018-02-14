@@ -29,7 +29,9 @@
         'report/delivery_slip.xml',
         'views/procter.xml',
         'views/jugosvalle.xml',
-        'views/pepsico.xml'
+        'views/pepsico.xml',
+        'views/gary.xml',
+        'views/mabe.xml'
         #'views/stock_quant.xml',
     ],
     # only loaded in demonstration mode
